@@ -13,10 +13,13 @@ Helm Chat for HWF Chatbot
 
     helm repo index --url https://github.com/navigateconsulting/hwf-platform-helm .
 
-## Add the repo 
-
-    helm repo add hwf-platform https://navigateconsulting.github.io/hwf-platform-helm/
-
 ## Regenerate index file when new chart is added 
 
     helm repo index --url https://navigateconsulting.github.io/hwf-platform-helm/ --merge index.yaml .
+
+## Add the repo and use it.
+
+    helm repo add hwf-platform https://navigateconsulting.github.io/hwf-platform-helm/
+    helm repo update
+    helm install hwf-platform/hwf-chatbot --namespace hwf-chatbot --generate-name
+
