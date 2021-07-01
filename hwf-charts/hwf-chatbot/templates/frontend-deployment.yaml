@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: {{ .Values.hwfplatform.namespace }}
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: {{ .Values.hwfplatform.registry }}/frontend:{{ .Values.hwfplatform.tag }}
+        ports:
+        - containerPort: 3000
+        env:
+          - name: BASE_URL
+            value: {{ .Values.frontend.baseUrl }}
+          - name: AZURE_CLIENT_ID
+            value: {{ .Values.frontend.azureClientId }}
+          - name: REGISTRY
+            value: {{ .Values.hwfplatform.registry }}
+          - name: TAG
+            value: {{ .Values.hwfplatform.tag }}

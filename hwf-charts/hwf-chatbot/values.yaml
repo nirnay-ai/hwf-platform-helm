@@ -1,0 +1,21 @@
+# Default values for hwf-chatbot-helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+hwfplatform:
+  registry: localhost:32000
+  tag: latest
+  hostname: chatbot.localhost
+  namespace: hwf-chatbot
+  routerNamespace: openfaas
+  backend:
+    scale:
+      min: 1
+      max: 2
+
+frontend:
+  baseUrl: http://localhost:5000
+  azureClientId: 1d16aacb-b8f1-4b1c-8d00-0996b9965d75
+

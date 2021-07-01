@@ -1,0 +1,113 @@
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: stack-projects
+  namespace: {{ .Values.hwfplatform.namespace }}
+spec:
+  name: stack-projects
+  image: {{ .Values.hwfplatform.registry }}/stack-projects:{{ .Values.hwfplatform.tag }}
+  environment:
+    minio_server: minio.minio:9000
+    write_debug: "true"
+  labels:
+    com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
+    com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
+  secrets:
+  - minio-access
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: stack-connector-validator
+  namespace: {{ .Values.hwfplatform.namespace }}
+spec:
+  name: stack-connector-validator
+  image: {{ .Values.hwfplatform.registry }}/stack-connector-validator:{{ .Values.hwfplatform.tag }}
+  environment:
+    exec_timeout: 15m
+    handler_wait_duration: 15m
+    minio_server: minio.minio:9000
+    read_timeout: 15m
+    write_debug: "true"
+    write_timeout: 15m
+  labels:
+    com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
+    com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
+  secrets:
+  - minio-access
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: stack-projects-deployment
+  namespace: {{ .Values.hwfplatform.namespace }}
+spec:
+  name: stack-projects-deployment
+  image: {{ .Values.hwfplatform.registry }}/stack-projects-deployment:{{ .Values.hwfplatform.tag }}
+  environment:
+    minio_server: minio.minio:9000
+    registry_name: {{ .Values.hwfplatform.registry }}
+    version: {{ .Values.hwfplatform.tag }}
+    write_debug: "true"
+  labels:
+    com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
+    com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
+  secrets:
+  - minio-access
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: stack-model-store
+  namespace: {{ .Values.hwfplatform.namespace }}
+spec:
+  name: stack-model-store
+  image: {{ .Values.hwfplatform.registry }}/stack-model-store:{{ .Values.hwfplatform.tag }}
+  environment:
+    exec_timeout: 15m
+    handler_wait_duration: 15m
+    minio_server: minio.minio:9000
+    read_timeout: 15m
+    write_debug: "true"
+    write_timeout: 15m
+  labels:
+    com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
+    com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
+    com.openfaas.scale.zero: "true"
+  secrets:
+  - minio-access
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: stack-admin
+  namespace: {{ .Values.hwfplatform.namespace }}
+spec:
+  name: stack-admin
+  image: {{ .Values.hwfplatform.registry }}/stack-admin:{{ .Values.hwfplatform.tag }}
+  environment:
+    minio_server: minio.minio:9000
+    write_debug: "true"
+  labels:
+    com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
+    com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
+  secrets:
+  - minio-access
+---
+apiVersion: openfaas.com/v1
+kind: Function
+metadata:
+  name: stack-channel-router
+  namespace: {{ .Values.hwfplatform.namespace }}
+spec:
+  name: stack-channel-router
+  image: {{ .Values.hwfplatform.registry }}/stack-channel-router:{{ .Values.hwfplatform.tag }}
+  environment:
+    minio_server: minio.minio:9000
+    write_debug: "true"
+  labels:
+    com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
+    com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
+  secrets:
+  - minio-access
