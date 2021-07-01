@@ -23,3 +23,4 @@ Helm Chat for HWF Chatbot
     helm repo update
     helm install hwf-platform/hwf-chatbot --namespace hwf-chatbot --generate-name
 
+d
