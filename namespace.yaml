@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: hwf-chatbot
+  annotations:
+    openfaas: '1'
