@@ -11,7 +11,3 @@ Download the sh and run to automate deployment
 
 1. To release new chart version , commit to main with new version in corresponding charts.yaml
 
-## Development environment setup.
-
-Installing k8s distribution 
-

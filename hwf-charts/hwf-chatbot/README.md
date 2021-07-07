@@ -2,17 +2,17 @@
 
 Welcome to HWF Chatbot Platform, 
 
-1. Pre requisites 
-2. Installation via Helm charts 
-3. TLS / SSL
-4. Customizing Ingress
-5. Documentation 
+1. [Pre requisites](#pre-requisites) 
+2. [Installation via Helm charts](#install-hwf-chatbot-platform) 
+3. [TLS / SSL](#tls--ssl)
+4. [Customizing Ingress](#customizing-ingress)
+5. [Documentation](#documentation) 
 
 ## Pre Requisites 
 
 This application has been built using Openfaas serverless framework and uses Minio object storage. Follow below instructions to prepare your environment
 
-###- Installing OpenFaas
+### - Installing OpenFaas
 
 Follow below instructions to install OpenFaas
 
@@ -43,7 +43,7 @@ To retrieve OpenFaas admin password
     kubectl -n openfaas get secret basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode
 
 
-###- Installing MinIo
+### - Installing MinIo
 
 Follow below instructions to install Minio
 
@@ -74,7 +74,7 @@ Install helm chart
     helm repo update
     helm install hwf-chatbot hwf-platform/hwf-chatbot --namespace hwf-chatbot
 
-###- Helm Configuration options 
+### - Helm Configuration options 
 
 Additional hwf chatbot options in `values.yaml`.
 
