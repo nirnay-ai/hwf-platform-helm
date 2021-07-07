@@ -1,5 +1,19 @@
-# hwf-chatbot-helm
-Helm Chat for HWF Chatbot 
+# Helm Charts for HWF Platform
+
+This Repo contains helm chart for below applications 
+- HWF Chatbot 
+
+## Quick Installer
+
+Download the sh and run to automate deployment 
+
+## Release steps 
+
+1. To release new chart version , commit to main with new version in corresponding charts.yaml
+
+## Development environment setup.
+
+Installing k8s distribution 
 
 ## Test chats by running lint 
 
@@ -66,10 +80,5 @@ Get Access key and secret key
 
 ## Prerequisites for installing hwf-chatbot 
 
-    kubectl apply -f namespace.yaml
-    kubectl apply -f minio-secret.yaml
+    kubectl apply -f https://navigateconsulting.github.io/hwf-platform-helm/namespace.yaml
 
-Manual creation of Secrets and namespaces 
-kubectl create namespace hwf-chatbot
-kubectl annotate namespace/hwf-chatbot openfaas="1"
-kubectl create secret generic minio-access --from-literal minio-access="{\"accessKey\":\"5uRFbSoFO9\",\"secretKey\":\"FdBw9vOIWZNvDRkBDouijJRZwcV7ATwGwecJNQ8L\"}" --namespace hwf-chatbot 
