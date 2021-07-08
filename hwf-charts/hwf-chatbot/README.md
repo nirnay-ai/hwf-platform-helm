@@ -94,5 +94,9 @@ TBA
 
 Documentation links below.
 
-- [Channels](./docs/channels.md)
+- Channels
+    - [REST](./docs/channel-rest.md)
+    - [Teams](./docs/channel-teams.md)
+    - [Telegram](./docs/channel-telegram.md)
+    - [WhatsApp](./docs/channel-whatsapp.md)
 
