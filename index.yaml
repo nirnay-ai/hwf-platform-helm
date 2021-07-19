@@ -3,6 +3,16 @@ entries:
   hwf-chatbot:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2021-07-19T14:07:29.222343119Z"
+    description: A Helm chart for HWF Chatbot
+    digest: 92b42bb94ab52a22388536bd2d6684bae5d48a2d4d191b75a06335ed0825113a
+    name: hwf-chatbot
+    type: application
+    urls:
+    - https://github.com/navigateconsulting/hwf-platform-helm/releases/download/hwf-chatbot-0.1.2/hwf-chatbot-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2021-07-19T12:06:35.177352399Z"
     description: A Helm chart for HWF Chatbot
     digest: ade187b2ae75cddb5d8291cd6fb8611186c90a7ac334f328a22fe0039acd44aa
@@ -21,4 +31,4 @@ entries:
     urls:
     - https://github.com/navigateconsulting/hwf-platform-helm/releases/download/hwf-chatbot-0.1.0/hwf-chatbot-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-19T12:06:35.177361099Z"
+generated: "2021-07-19T14:07:29.22236232Z"
