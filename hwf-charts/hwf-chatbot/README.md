@@ -98,7 +98,7 @@ Additional hwf chatbot options in `values.yaml`.
 | ----------------------- | ----------------------------------    | ---------------------------------------------------------- |
 | `hwfplatform.registry` | Registry name to pull images | `localhost:32000` |
 | `hwfplatform.tag` | Version of the application to be installed | `latest` |
-|
+
 
 ## TLS / SSL
 TBA
