@@ -75,6 +75,7 @@ Install helm chart
     helm install hwf-chatbot hwf-platform/hwf-chatbot --namespace hwf-chatbot
 
 ### - Setup Docker registry credentials as image pull secrets
+** TODO Move these in Helm 
 
 Create the image pull secret
 
@@ -87,7 +88,7 @@ Create the image pull secret
 
 Patch the service account 
 
-    kubectl patch serviceaccount default -p '{\"imagePullSecrets\": [{\"name\": \"hwfregistrykey\"}]}' -n <namespace> 
+    kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "hwfregistrykey"}]}' -n <namespace> 
 
 
 ### - Helm Configuration options 

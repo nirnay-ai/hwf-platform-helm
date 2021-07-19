@@ -13,8 +13,6 @@ spec:
   labels:
     com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
     com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
-  secrets:
-  - minio-access
 ---
 apiVersion: openfaas.com/v1
 kind: Function
@@ -34,8 +32,6 @@ spec:
   labels:
     com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
     com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
-  secrets:
-  - minio-access
 ---
 apiVersion: openfaas.com/v1
 kind: Function
@@ -53,8 +49,6 @@ spec:
   labels:
     com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
     com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
-  secrets:
-  - minio-access
 ---
 apiVersion: openfaas.com/v1
 kind: Function
@@ -75,8 +69,6 @@ spec:
     com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
     com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
     com.openfaas.scale.zero: "true"
-  secrets:
-  - minio-access
 ---
 apiVersion: openfaas.com/v1
 kind: Function
@@ -92,8 +84,6 @@ spec:
   labels:
     com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
     com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
-  secrets:
-  - minio-access
 ---
 apiVersion: openfaas.com/v1
 kind: Function
@@ -109,5 +99,3 @@ spec:
   labels:
     com.openfaas.scale.max: "{{ .Values.hwfplatform.backend.scale.max }}"
     com.openfaas.scale.min: "{{ .Values.hwfplatform.backend.scale.min }}"
-  secrets:
-  - minio-access
