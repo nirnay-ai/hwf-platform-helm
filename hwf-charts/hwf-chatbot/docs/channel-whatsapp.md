@@ -33,32 +33,32 @@ Below are the required fields for configuration of WhatsApp channel in HWF.
 
 ## Inbound Message formats 
 
-### Text
+#### - Text
 Regular text messages set to bot are supported. 
 
-### Image with caption 
+#### - Image with caption 
 An image sent as attachment to bot with text caption, here the text caption is passed to chatbot as intent
 and the image is passed on as attachment to chatbot. 
 Image attachment would contain the URL to download the image in attachment secton of the tracker, and can be used in skill / custom action 
 to download and process the image.
 
-### Attachment with caption
+#### - Attachment with caption
 
 An attachment sent to bot can be processed in custom actions / skills. Attachment URL and other details are stored in attchment
 section of the inbound tracker. Also caption needs to be passed along with the attachment so that appropriate intent is triggered. 
 
 ## Outbound Message formats 
 
-### Text 
+#### - Text 
 Regular text messages with formatting. Check [this](https://developers.facebook.com/docs/whatsapp/api/messages#formatting) doc on how to format Whatsapp Text messages 
 
-### Buttons 
+#### - Buttons 
 buttons not directly supported for whatsapp. Can be considered infuture. use templates for sending buttons 
 
-### Images 
+#### - Images 
 Send Images as attachment , Image can be a URL , or a media sent over to whatsapp. (As of now only URL supported)
 
-### Custom 
+#### - Custom 
 Whatsapp supports messages with buttons and quick replies, but these messages are considered as templates and these needs to be 
 approved before-hand by facebook to be used as response. Ref documentation [here](https://developers.facebook.com/docs/whatsapp/api/messages/message-templates/interactive-message-templates/)  
 Once the template is approved , the template content can be passed in response's section in custom field.
