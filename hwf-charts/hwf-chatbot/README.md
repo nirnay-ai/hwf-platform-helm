@@ -74,6 +74,23 @@ Install helm chart
     helm repo update
     helm install hwf-chatbot hwf-platform/hwf-chatbot --namespace hwf-chatbot
 
+### - Setup Docker registry credentials as image pull secrets
+** TODO Move these in Helm 
+
+Create the image pull secret
+
+    kubectl create secret docker-registry hwfregistrykey \
+    --docker-server=https://index.docker.io/v1/ \
+    --docker-username=<username> \
+    --docker-password=<password> \
+    --docker-email=<email>  \
+	-n <namespace>
+
+Patch the service account 
+
+    kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "hwfregistrykey"}]}' -n <namespace> 
+
+
 ### - Helm Configuration options 
 
 Additional hwf chatbot options in `values.yaml`.
@@ -82,7 +99,7 @@ Additional hwf chatbot options in `values.yaml`.
 | ----------------------- | ----------------------------------    | ---------------------------------------------------------- |
 | `hwfplatform.registry` | Registry name to pull images | `localhost:32000` |
 | `hwfplatform.tag` | Version of the application to be installed | `latest` |
-|
+
 
 ## TLS / SSL
 TBA
@@ -94,9 +111,26 @@ TBA
 
 Documentation links below.
 
-- Channels
-    - [REST](./docs/channel-rest.md)
-    - [Teams](./docs/channel-teams.md)
-    - [Telegram](./docs/channel-telegram.md)
-    - [WhatsApp](./docs/channel-whatsapp.md)
+### Channels
+HWF Chatbot platform supports multiple input channels by default, below are the details. 
+  - [REST](./docs/channel-rest.md)
+  - [Teams](./docs/channel-teams.md)
+  - [Telegram](./docs/channel-telegram.md)
+  - [WhatsApp](./docs/channel-whatsapp.md)
 
+### External Events
+There may be a case when we need to notify user of an event which has occoured externally. 
+For example if there is any workflow which needs to be approved by the user, we might need to inform the user asynchronously
+about the pending workflow approval. External events can be used in such cases.
+
+Any application can send a message back to the user with an event. Chatbot would process the message and 
+send the response back to user. All the calling application needs to do is inform the intent and fill in the required slots
+and chatbot would take care of communicating it to the user. 
+
+Below would be the request format. 
+
+Method: POST
+
+URL: http://{domain_name}/external/{project_name}/{secret_token}/{conversation_id}
+
+Body: {"name": "EXTERNAL_dry_plant", "entities": {"plant": "Orchid"}}
