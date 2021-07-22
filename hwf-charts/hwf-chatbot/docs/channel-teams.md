@@ -13,6 +13,7 @@ Configuration steps for microsoft
 ![Create Bot Framework Account](./images/Teams_CreateBotFrameworkAccount.png "Bot Framework Account") 
 
 2. Create bot handle and provide other details.
+
 ![](./images/Teams_BotFrameworkAccountSettings.png "Bot Framework Settings")
 
 3. Enable Teams Channel 
